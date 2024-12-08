@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Movie Recommendation</h1>
+            <button id="themeToggle" class="theme-toggle-btn">Switch to Dark Mode</button>
+        </header>
+
+        <form id="genreForm" class="movie-form">
+            <input type="text" id="movieTitle" placeholder="Search for a movie" required />
+            <button type="submit">Search</button>
+        </form>
+
+        <ul id="movieList"></ul> <!-- Movie list container -->
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
