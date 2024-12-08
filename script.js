@@ -1,7 +1,7 @@
 // API Key
 const API_KEY = '9564455d'; // Replace with your actual OMDb API key
 
-// Check for saved theme and apply it
+
 window.onload = function () {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) {
@@ -10,37 +10,33 @@ window.onload = function () {
   }
 };
 
-// Theme toggle functionality
 document.getElementById('themeToggle').addEventListener('click', function () {
   const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-  // Toggle theme classes
+ 
   document.body.classList.remove(currentTheme);
   document.body.classList.add(newTheme);
 
-  // Update button text
+ 
   document.querySelector('#themeToggle').textContent = newTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
 
-  // Save the theme preference to localStorage
   localStorage.setItem('theme', newTheme);
 });
 
-// Event listener for form submission
 document.getElementById('genreForm').addEventListener('submit', function (event) {
   event.preventDefault();
 
   const movieTitle = document.getElementById('movieTitle').value;
 
   const movieList = document.getElementById('movieList');
-  movieList.innerHTML = ''; // Clear previous results
+  movieList.innerHTML = '';
 
   if (!movieTitle) {
     alert('Please enter a movie title.');
     return;
   }
 
-  // Fetch movie data from OMDb API
   fetch(`https://www.omdbapi.com/?s=${movieTitle}&apikey=${API_KEY}`)
     .then(response => response.json())
     .then(data => {
